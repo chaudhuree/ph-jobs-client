@@ -4,6 +4,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import axios from "axios";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import PrivateRoute from "./components/PrivateRoute";
@@ -13,6 +14,7 @@ import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
+
 function App() {
   return (
     <>

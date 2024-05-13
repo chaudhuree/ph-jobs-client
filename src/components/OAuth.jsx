@@ -6,6 +6,7 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axiosSecure from "../hooks/useAxiosHook";
 export default function OAuth() {
   const navigate = useNavigate();
   async function onGoogleClick() {
@@ -14,7 +15,13 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-
+      const {data} =await axiosSecure.post('/auth',{email:user.email,displayName:user.displayName,photoURL:user.photoURL})
+      
+      if(data.user){
+        toast.success("You have successfully signed in with Google");
+      }else{
+        toast.error("Could not authorize with Google");
+      }
       navigate("/");
     } catch (error) {
       toast.error("Could not authorize with Google");

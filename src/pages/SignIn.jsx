@@ -7,6 +7,7 @@ import OAuth from "../components/OAuth";
 import Spinner from "../components/Spinner";
 import logo from "/2.svg";
 import { Helmet } from "react-helmet";
+import axiosSecure from "../hooks/useAxiosHook";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -46,6 +47,7 @@ export default function SignIn() {
         password
       );
       if (userCredential.user) {
+        axiosSecure.post("/auth", { email: userCredential.user.email,displayName:userCredential.user.displayName,photoURL:userCredential.user.photoURL});
         navigate("/");
       }
       setLoading(false);
@@ -92,7 +94,7 @@ export default function SignIn() {
             <div className="mt-4">
               <label
                 className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-                for="LoggingEmailAddress"
+                htmlFor="email"
               >
                 Email Address
               </label>
@@ -110,7 +112,7 @@ export default function SignIn() {
               <div className="flex justify-between">
                 <label
                   className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-                  for="loggingPassword"
+                  htmlFor="password"
                 >
                   Password
                 </label>

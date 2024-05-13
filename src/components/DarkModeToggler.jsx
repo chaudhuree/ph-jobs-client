@@ -46,7 +46,7 @@ function DarkModeToggler() {
       </svg>
 
       <svg
-        className="swap-off fill-current size-10 p-2 text-black"
+        className="swap-off fill-current size-10 p-2 text-gray-500"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >

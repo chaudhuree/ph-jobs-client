@@ -5,12 +5,13 @@ import { routeLists } from "../utils";
 import logo from "/2.svg";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import axiosSecure from "../hooks/useAxiosHook";
 
 export default function Navbar() {
   const { logout, currentUser } = useAuth();
   const location = useLocation();
-
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
+    const {data}=await axiosSecure.get("/auth/logout");
     logout();
   };
   function pathMatchRoute(route) {
@@ -113,8 +114,8 @@ export default function Navbar() {
                 <li className="font-bold whitespace-nowrap">
                   {currentUser?.displayName}
                 </li>
-                <Link to="/profile" className="py-2 px-[13px] bg-primary text-white rounded-[8px] font-semibold  ">
-                  Update Profile
+                <Link to="/profile" className="py-2 px-[13px] bg-primary text-white rounded-[8px] font-semibold flex items-center justify-center ">
+                  Profile
                 </Link>
               </ul>
             </div>
