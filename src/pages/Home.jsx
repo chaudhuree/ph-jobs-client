@@ -1,10 +1,14 @@
 import { Helmet } from "react-helmet"
+import HeroSection from "../components/HeroSection"
 export default function Home() {
+
   return (
-    <div className='h-dvh container mx-auto   font-poppins'>
+    <div className=' container mx-auto   font-poppins'>
       <Helmet>
         <title>Jobs - your destiny is here</title>
       </Helmet>
-    Home</div>
+
+      <HeroSection />
+    </div>
   )
 }

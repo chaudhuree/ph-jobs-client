@@ -9,8 +9,10 @@ export default {
       },
       colors:{
         primary:"#2A68FF",
-        secondary:"#4f1410",
-        blackd:"#3B3A3B"
+        'blueColor' : '#2a68ff',
+        'greyIsh' : '#f1f4f8',
+        'cardShadow' : '#f7f8f9',
+        'textColor' : '#252b36',
       }
       
     },
