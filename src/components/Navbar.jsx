@@ -10,9 +10,11 @@ import axiosSecure from "../hooks/useAxiosHook";
 export default function Navbar() {
   const { logout, currentUser } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const logoutHandler = async () => {
-    const {data}=await axiosSecure.get("/auth/logout");
     logout();
+    await axiosSecure.get("/auth/logout");
+    navigate("/");
   };
   function pathMatchRoute(route) {
     if (route === location.pathname) {
