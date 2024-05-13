@@ -22,7 +22,7 @@ export default function Navbar() {
     }
   }
   return (
-    <div className="navbar container  px-[20px] md:px-[100px] py-[18px]  font-poppins ">
+    <div className="navbar container  mx-auto  py-[18px]  font-poppins px-0">
       <Tooltip id="avatar" />
       <div className="navbar-start">
         <div className="dropdown z-50">
@@ -53,7 +53,7 @@ export default function Navbar() {
             {routeLists?.map((route) => (
               <li key={route.path}>
                 <NavLink to={route.path} className={` flex items-center justify-center mb-2  ${
-                  !currentUser && (route.path === "/add-spot" || route.path === "/my-list") && "hidden"
+                  !currentUser && (route.path === "/addjob" || route.path === "/myjobs" || route.path==="/appliedjobs") && "hidden"
                 }`}>
                   {route.routeName}
                 </NavLink>
@@ -70,8 +70,8 @@ export default function Navbar() {
           </ul>
         </div>
         <Link to="/" className=" text-xl ml-0 flex items-center">
-            <img src={logo} className="size-[100px]" alt="brand-logo" />
-            <span className=" ml-[-20px] text-primary font-extrabold">Jobs</span>
+        <span className="  text-primary font-extrabold">Jobs</span>
+            <img src={logo} className="size-[100px] -ml-5" alt="brand-logo" />
           </Link>
       </div>
       <div className="navbar-center hidden lg:flex items-center  ">
@@ -85,7 +85,7 @@ export default function Navbar() {
                   ? "text-primary font-medium  border-b-[4px] border-b-primary"
                   : ""
               } ${
-                !currentUser && (route.path === "/add-spot" || route.path === "/my-list") && "hidden"
+                !currentUser && (route.path === "/addjob" || route.path === "/myjobs" || route.path==="/appliedjobs") && "hidden"
               } leading-[120%] text-gray-500`}
             >
               {route.routeName}
