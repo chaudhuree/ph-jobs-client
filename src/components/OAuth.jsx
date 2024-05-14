@@ -7,17 +7,23 @@ import {
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosSecure from "../hooks/useAxiosHook";
+import { useMutation } from "@tanstack/react-query";
 export default function OAuth() {
   const navigate = useNavigate();
+  const {mutateAsync} = useMutation({
+    mutationFn:async ({data})=>await axiosSecure.post("/auth",data),
+  })
   async function onGoogleClick() {
     try {
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      const {data} =await axiosSecure.post('/auth',{email:user.email,displayName:user.displayName,photoURL:user.photoURL})
+      // const {data} =await axiosSecure.post('/auth',{email:user.email,displayName:user.displayName,photoURL:user.photoURL})
+      const data = await mutateAsync({data:{ email: user.email,displayName:user.displayName,photoURL:user.photoURL}});
+      console.log('data->',data);
       
-      if(data.user){
+      if(data.data.user){
         toast.success("You have successfully signed in with Google");
       }else{
         toast.error("Could not authorize with Google");

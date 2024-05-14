@@ -154,7 +154,7 @@ export default function Profile() {
                       changeDetail && onSubmit();
                       setChangeDetail((prevState) => !prevState);
                     }}
-                    className="text-secondary dark:text-sky-600 dark:hover:text-sky-800 hover:text-[#1b0a0a] transition ease-in-out duration-200 ml-2 cursor-pointer  border-[#4f1410c8] font-semibold"
+                    className="text-amber-600 dark:text-sky-600 dark:hover:text-sky-800 hover:text-[#1b0a0a] transition ease-in-out duration-200 ml-2 cursor-pointer  border-[#4f1410c8] font-semibold"
                   >
                     {changeDetail ? "Apply change" : "Edit"}
                   </span>
