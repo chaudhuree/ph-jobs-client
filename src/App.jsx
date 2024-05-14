@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import SingleJob from "./pages/SingleJob";
 import AllJobs from "./pages/AllJobs";
 import AddJob from "./pages/AddJob";
+import AppliedJobs from "./pages/AppliedJobs";
 
 function App() {
   return (
@@ -81,6 +82,16 @@ function App() {
           }
         >
           <Route path="/addjob" element={<AddJob />} />
+        </Route>
+        <Route
+          path="/appliedjobs"
+          element={
+            <LayoutWithNavbar>
+              <PrivateRoute />
+            </LayoutWithNavbar>
+          }
+        >
+          <Route path="/appliedjobs" element={<AppliedJobs />} />
         </Route>
         <Route
           path="/job/:id"
