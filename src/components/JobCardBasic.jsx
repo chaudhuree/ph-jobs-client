@@ -1,6 +1,6 @@
 import moment from "moment"
 import { Link } from "react-router-dom"
-export default function JobCardBasic({jobTitle,recruiter,jobDescription,category,deadline}) {
+export default function JobCardBasic({id,jobTitle,recruiter,jobDescription,category,deadline}) {
  
   return (
     <div className="w-full md:w-[45%] max-w-2xl px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
@@ -15,7 +15,7 @@ export default function JobCardBasic({jobTitle,recruiter,jobDescription,category
     </div>
 
     <div className="flex items-center justify-between mt-4">
-        <Link to="/" className="text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">View Details</Link>
+        <Link to={`/job/${id}`} className="text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">View Details</Link>
 
         <div className="flex items-center">
             <img className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" src={recruiter.photoURL} alt="avatar"/>

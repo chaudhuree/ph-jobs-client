@@ -40,6 +40,7 @@ export default function SingleTab({ category, limit }) {
         }) => (
           <SingleCardComponent
             key={_id}
+            id={_id}
             recruiter={recruiterName}
             jobTitle={jobTitle}
             createdAt={createdAt}

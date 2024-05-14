@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
+import SingleJob from "./pages/SingleJob";
 
 function App() {
   return (
@@ -61,6 +62,16 @@ function App() {
           }
         >
           <Route path="/profile" element={<Profile />} />
+        </Route>
+        <Route
+          path="/job/:id"
+          element={
+            <LayoutWithNavbar>
+              <PrivateRoute />
+            </LayoutWithNavbar>
+          }
+        >
+          <Route path="/job/:id" element={<SingleJob />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { getAuth } from "firebase/auth";
 import moment from "moment";
 export default function SingleCardComponent({
+  id,
   recruiter,
   jobTitle,
   createdAt,
@@ -14,7 +15,7 @@ export default function SingleCardComponent({
 
   const handleVisit = () => {
     if (getAuth().currentUser) {
-      navigate("/profile");
+      navigate(`/job/${id}`);
     } else {
       toast.error("Please login to view the course details");
       navigate("/signin");

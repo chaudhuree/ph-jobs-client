@@ -30,7 +30,7 @@ export default function HeroSection() {
             </h2>
             <div className="flex gap-6 mt-4 flex-wrap items-center justify-center">
               {jobs.map((job, index) => (
-                <JobCardBasic key={job._id} deadline={job.deadline} jobTitle={job.jobTitle} recruiter={job.recruiter} jobDescription={job.jobDescription} category={job.category} />
+                <JobCardBasic  key={job._id} id={job._id} deadline={job.deadline} jobTitle={job.jobTitle} recruiter={job.recruiter} jobDescription={job.jobDescription} category={job.category} />
               ))}
             </div>
           </div>
