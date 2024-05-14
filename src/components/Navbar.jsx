@@ -52,27 +52,36 @@ export default function Navbar() {
           >
             {routeLists?.map((route) => (
               <li key={route.path}>
-                <NavLink to={route.path} className={` flex items-center justify-center mb-2  ${
-                  !currentUser && (route.path === "/addjob" || route.path === "/myjobs" || route.path==="/appliedjobs") && "hidden"
-                }`}>
+                <NavLink
+                  to={route.path}
+                  className={` flex items-center justify-center mb-2  ${
+                    !currentUser &&
+                    (route.path === "/addjob" ||
+                      route.path === "/myjobs" ||
+                      route.path === "/appliedjobs") &&
+                    "hidden"
+                  }`}
+                >
                   {route.routeName}
                 </NavLink>
               </li>
             ))}
-            {currentUser ? (<li>
-              <button
-                onClick={logoutHandler}
-                className="w-full py-2 px-[13px] bg-primary text-white rounded-[8px] font-semibold text-base flext justify-center mt-3"
-              >
-                Logout
-              </button>
-              </li>) : null}
+            {currentUser ? (
+              <li>
+                <button
+                  onClick={logoutHandler}
+                  className="w-full py-2 px-[13px] bg-primary text-white rounded-[8px] font-semibold text-base flext justify-center mt-3"
+                >
+                  Logout
+                </button>
+              </li>
+            ) : null}
           </ul>
         </div>
         <Link to="/" className=" text-xl ml-0 flex items-center">
-        <span className="  text-primary font-extrabold">Jobs</span>
-            <img src={logo} className="size-[100px] -ml-5" alt="brand-logo" />
-          </Link>
+          <span className="  text-primary font-extrabold">Jobs</span>
+          <img src={logo} className="size-[100px] -ml-5" alt="brand-logo" />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex items-center  ">
         <div className="flex flex-row gap-8 px-1">
@@ -85,7 +94,11 @@ export default function Navbar() {
                   ? "text-primary font-medium  border-b-[4px] border-b-primary"
                   : ""
               } ${
-                !currentUser && (route.path === "/addjob" || route.path === "/myjobs" || route.path==="/appliedjobs") && "hidden"
+                !currentUser &&
+                (route.path === "/addjob" ||
+                  route.path === "/myjobs" ||
+                  route.path === "/appliedjobs") &&
+                "hidden"
               } leading-[120%] text-gray-500`}
             >
               {route.routeName}
@@ -95,7 +108,6 @@ export default function Navbar() {
       </div>
 
       <div className="navbar-end">
-        
         {currentUser ? (
           <div className="flex items-center gap-2">
             <div className="avatar dropdown dropdown-end">
@@ -116,18 +128,21 @@ export default function Navbar() {
                 <li className="font-bold whitespace-nowrap">
                   {currentUser?.displayName}
                 </li>
-                <Link to="/profile" className="py-2 px-[13px] bg-primary text-white rounded-[8px] font-semibold flex items-center justify-center ">
+                <Link
+                  to="/profile"
+                  className="py-2 px-[13px] bg-primary text-white rounded-[8px] font-semibold flex items-center justify-center "
+                >
                   Profile
                 </Link>
+                <button
+                  onClick={logoutHandler}
+                  className="py-2 px-[13px]   rounded-[8px] font-semibold text-lg text-amber-600 max-md:hidden"
+                >
+                  Logout
+                </button>
               </ul>
             </div>
             <DarkModeToggler />
-            <button
-              onClick={logoutHandler}
-              className="py-2 px-[13px]  text-primary rounded-[8px] font-semibold text-xl max-md:hidden"
-            >
-              Logout
-            </button>
           </div>
         ) : (
           <div className="flex items-center gap-4">
@@ -135,10 +150,8 @@ export default function Navbar() {
             <NavLink
               to="/signin"
               className={`${
-                pathMatchRoute("/signin")
-                  ? "  "
-                  : ""
-              } py-1 md:py-2 px-2 md:px-[13px]  text-primary rounded-[8px] font-semibold text-sm md:text-xl`}
+                pathMatchRoute("/signin") ? "  " : ""
+              } py-1 md:py-2 px-1  md:px-[13px]  text-primary rounded-[8px] font-semibold text-sm md:text-xl`}
             >
               Login ➝
             </NavLink>

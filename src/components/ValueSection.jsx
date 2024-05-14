@@ -4,7 +4,7 @@ import shield from "/shield.png";
 export default function ValueSection() {
   return (
     <div className="mb-[4rem] mt-[6rem] ">
-      <h1 className="text-textColor dark:text-gray-300 text-[25px] py-[2rem] pb-[3rem] font-bold w-[400px] block">
+      <h1 className="text-textColor dark:text-gray-300 text-lg md:text-[25px] py-[2rem] pb-[3rem] font-bold w-[300px] max-md:mx-auto md:w-[400px] block">
         {" "}
         The Value that holds us true and to account{" "}
       </h1>

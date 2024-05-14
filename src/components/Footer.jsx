@@ -30,7 +30,7 @@ export default function Footer() {
             <img src={whatsapp} alt="what'sapp logo" />
           </div>
         </div>
-        <div className="max-lg:col-span-6 w-full max-lg:text-center lg:col-span-4 grid lg:justify-center">
+        <div className="max-md:col-span-5 max-lg:col-span-6 w-full max-lg:text-center lg:col-span-4 grid lg:justify-center">
           <h4 className="font-poppins mb-3 font-semibold text-base">
             Services
           </h4>
@@ -42,7 +42,7 @@ export default function Footer() {
             <p className="cursor-pointer">Contact us</p>
           </div>
         </div>
-        <div className="max-lg:col-span-6 w-full  lg:col-span-4 grid lg:justify-end">
+        <div className="max-md:col-span-7 max-lg:col-span-6 w-full  lg:col-span-4 grid lg:justify-end">
           <h4 className="font-poppins mb-3 font-semibold text-base">Contct Us</h4>
 
           <div className="flex flex-col gap-[10px] text-base">
