@@ -8,6 +8,7 @@ import Spinner from "../components/Spinner";
 import logo from "/2.svg";
 import { Helmet } from "react-helmet";
 import axiosSecure from "../hooks/useAxiosHook";
+import { useMutation,useQueryClient } from "@tanstack/react-query";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,6 +18,7 @@ export default function SignIn() {
     password: "",
   });
   const { email, password } = formData;
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   function onChange(e) {
     setFormData((prevState) => ({
@@ -24,7 +26,9 @@ export default function SignIn() {
       [e.target.id]: e.target.value,
     }));
   }
-
+ const {mutateAsync} = useMutation({
+   mutationFn:async ({data})=>await axiosSecure.post("/auth",data),
+ })
   async function onSubmit(e) {
     e.preventDefault();
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -47,7 +51,8 @@ export default function SignIn() {
         password
       );
       if (userCredential.user) {
-        axiosSecure.post("/auth", { email: userCredential.user.email,displayName:userCredential.user.displayName,photoURL:userCredential.user.photoURL});
+      
+        await mutateAsync({data:{ email: userCredential.user.email,displayName:userCredential.user.displayName,photoURL:userCredential.user.photoURL}});
         navigate("/");
       }
       setLoading(false);

@@ -1,6 +1,6 @@
-import React from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function Cta() {
+  const navigate = useNavigate();
   return (
     <div className=" mt-[2rem] flex flex-wrap gap-8 justify-between bg-[#EAEAEA] p-[5rem] rounded-[10px]">
       <div>
@@ -12,7 +12,7 @@ export default function Cta() {
           Let's get started!
         </h2>
       </div>
-      <button className="border-[2px] rounded-[10px] py-[4px] px-[50px] text-[18px] font-semibold text-blueColor hover:bg-white border-blueColor">
+      <button onClick={()=>navigate('/alljobs')} className="border-[2px] rounded-[10px] py-[4px] px-[50px] text-[18px] font-semibold text-blueColor hover:bg-white border-blueColor">
         Get Started
       </button>
     </div>
