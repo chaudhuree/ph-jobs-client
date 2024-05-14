@@ -18,5 +18,9 @@ export const routeLists = [
   {
     path: "/appliedjobs",
     routeName: "Applied Jobs",
+  },
+  {
+    path: "/blogs",
+    routeName: "Blogs",
   }
 ];

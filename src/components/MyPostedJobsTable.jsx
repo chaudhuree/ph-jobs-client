@@ -129,7 +129,7 @@ export default function MyPostedJobsTable({ jobsData }) {
                             <p className="text-gray-500 dark:text-gray-400">
                               {job.applicants} 
                             </p>
-                            <span className="text-cyan-600 ml-4 text-lg"><FaUsersViewfinder/></span>
+                            <span className="text-cyan-600 ml-4 text-lg"><Link to={`/applicantlist/${job._id}`}><FaUsersViewfinder/></Link></span>
                           </div>
                         </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">

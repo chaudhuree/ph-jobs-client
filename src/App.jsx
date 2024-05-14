@@ -19,6 +19,8 @@ import AddJob from "./pages/AddJob";
 import AppliedJobs from "./pages/AppliedJobs";
 import MyJobs from "./pages/MyJobs";
 import UpdateJob from "./pages/UpdateJob";
+import Blogs from "./pages/Blogs";
+import ApplicantList from "./pages/ApplicantList";
 
 function App() {
   return (
@@ -67,6 +69,14 @@ function App() {
         >
           <Route path="/profile" element={<Profile />} />
         </Route>
+        <Route
+          path="/blogs"
+          element={
+            <LayoutWithNavbar>
+              <Blogs />
+            </LayoutWithNavbar>
+          }
+        />
         <Route
           path="/alljobs"
           element={
@@ -124,6 +134,16 @@ function App() {
           }
         >
           <Route path="/job/:id" element={<SingleJob />} />
+        </Route>
+        <Route
+          path="/applicantlist/:id"
+          element={
+            <LayoutWithNavbar>
+              <PrivateRoute />
+            </LayoutWithNavbar>
+          }
+        >
+          <Route path="/applicantlist/:id" element={<ApplicantList />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

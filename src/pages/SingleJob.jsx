@@ -90,7 +90,7 @@ export default function SingleJob() {
             <p>
               <strong className="dark:text-gray-300">Company name</strong> :{" "}
               <span className="text-primary font-bold">
-                {singleJob?.company}
+                {singleJob?.company} - <span className="text-amber-600">{singleJob?.jobLocation}</span>
               </span>
             </p>
           </div>
