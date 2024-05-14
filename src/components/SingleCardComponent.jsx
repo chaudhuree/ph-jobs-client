@@ -28,7 +28,7 @@ export default function SingleCardComponent({
           {moment(createdAt).fromNow()} by {recruiter}
         </span>
         <span className="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">
-          {applicants} applicants
+          {applicants}
         </span>
       </div>
 

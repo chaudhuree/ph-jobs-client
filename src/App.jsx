@@ -4,7 +4,6 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import axios from "axios";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import PrivateRoute from "./components/PrivateRoute";
@@ -15,6 +14,8 @@ import SignIn from "./pages/SignIn";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import SingleJob from "./pages/SingleJob";
+import AllJobs from "./pages/AllJobs";
+import AddJob from "./pages/AddJob";
 
 function App() {
   return (
@@ -62,6 +63,24 @@ function App() {
           }
         >
           <Route path="/profile" element={<Profile />} />
+        </Route>
+        <Route
+          path="/alljobs"
+          element={
+            <LayoutWithNavbar>
+              <AllJobs />
+            </LayoutWithNavbar>
+          }
+        />
+        <Route
+          path="/addjob"
+          element={
+            <LayoutWithNavbar>
+              <PrivateRoute />
+            </LayoutWithNavbar>
+          }
+        >
+          <Route path="/addjob" element={<AddJob />} />
         </Route>
         <Route
           path="/job/:id"

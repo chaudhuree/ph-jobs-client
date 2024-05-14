@@ -9,11 +9,7 @@ export default function SingleJob() {
     const { data } = await axiosSecure.get(`/job/${id}`);
     return data.job;
   };
-  const {
-    data: singleJob,
-    isLoading,
-
-  } = useQuery({
+  const { data: singleJob, isLoading } = useQuery({
     queryFn: () => getData(),
     queryKey: ["job", id],
   });
@@ -24,7 +20,7 @@ export default function SingleJob() {
       </div>
     );
   return (
-    <div className="mx-auto px-5 min-h-screen overflow-hidden  rounded-t-lg ">
+    <div className="mx-auto container px-5 min-h-screen overflow-hidden  rounded-t-lg ">
       <div className="bg-white rounded-lg dark:bg-[#111827]">
         <img
           className="object-fill w-full h-[300px]"
@@ -55,7 +51,7 @@ export default function SingleJob() {
           </div>
 
           <div className="mt-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center flex-wrap gap-5 max-md:justify-center justify-between">
               <div className="flex items-center dark:text-gray-300">
                 <span className="font-bold text-orange-500 mx-3 text-xl">
                   {singleJob?.applicants}
@@ -76,7 +72,7 @@ export default function SingleJob() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col gap-4 my-5">
+          <div className="flex flex-col max-md:justify-center max-md:items-center gap-4 my-5">
             <div className="flex  gap-3">
               <img
                 className="object-cover h-10 rounded-full"
@@ -100,10 +96,13 @@ export default function SingleJob() {
           </div>
         </div>
       </div>
-      <div className={`flex justify-center items-center ${moment(singleJob?.deadline)
-        .fromNow()
-        .toString()
-        .includes("ago") ? "hidden" :""}`}>
+      <div
+        className={`flex justify-center items-center ${
+          moment(singleJob?.deadline).fromNow().toString().includes("ago")
+            ? "hidden"
+            : ""
+        }`}
+      >
         <ModalExample jobTitle={singleJob?.jobTitle} jobId={singleJob?._id} />
       </div>
     </div>
