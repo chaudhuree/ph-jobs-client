@@ -10,6 +10,7 @@ export default function Home() {
         <title>Jobs - your destiny is here</title>
       </Helmet>
       <HeroSection />
+      
       <ValueSection />
 
       <TabsSection />

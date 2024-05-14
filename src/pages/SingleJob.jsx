@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import moment from "moment";
 import { useQuery } from "@tanstack/react-query";
 import axiosSecure from "../hooks/useAxiosHook";
+import ModalExample from "../components/Modal";
 export default function SingleJob() {
   const { id } = useParams();
   const getData = async () => {
@@ -11,8 +12,7 @@ export default function SingleJob() {
   const {
     data: singleJob,
     isLoading,
-    isError,
-    error,
+
   } = useQuery({
     queryFn: () => getData(),
     queryKey: ["job", id],
@@ -99,11 +99,13 @@ export default function SingleJob() {
             </p>
           </div>
         </div>
-        
       </div>
-      <div className="flex justify-center items-center">
-          <button className="bg-primary hover:bg-blue-500 px-20 rounded-lg text-base text-white font-bold py-4">Apply Now</button>
-        </div>
+      <div className={`flex justify-center items-center ${moment(singleJob?.deadline)
+        .fromNow()
+        .toString()
+        .includes("ago") ? "hidden" :""}`}>
+        <ModalExample jobTitle={singleJob?.jobTitle} jobId={singleJob?._id} />
+      </div>
     </div>
   );
 }
