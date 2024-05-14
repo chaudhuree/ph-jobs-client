@@ -22,7 +22,7 @@ export default function Navbar() {
     }
   }
   return (
-    <div className="navbar container  mx-auto px-[10px]  py-[18px]  font-poppins ">
+    <div className="navbar container  mx-auto px-5  py-[18px]  font-poppins ">
       <Tooltip id="avatar" />
       <div className="navbar-start">
         <div className="dropdown z-50">

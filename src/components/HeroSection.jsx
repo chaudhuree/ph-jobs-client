@@ -5,8 +5,6 @@ import { useState } from "react";
 export default function HeroSection() {
   const [jobs, setJobs] = useState([]);
   const [totalJobs, setTotalJobs] = useState(0);
-  console.log("jobs", jobs);
-  console.log("totalJobs", totalJobs);
 
   return (
     <>
