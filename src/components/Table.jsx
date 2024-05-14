@@ -1,4 +1,5 @@
 import moment from "moment";
+import { Link } from "react-router-dom";
 export default function Table({ jobsData,total,limit,currentPage,setCurrentPage }) {
      // calculate page number
      const numberOfPages = Math.ceil(total / limit)
@@ -84,12 +85,12 @@ export default function Table({ jobsData,total,limit,currentPage,setCurrentPage 
                       </td>
 
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <a
-                          href={`/job/${job._id}`}
+                        <Link
+                          to={`/job/${job._id}`}
                           className="text-blue-500 dark:text-blue-400"
                         >
                           View
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   ))}

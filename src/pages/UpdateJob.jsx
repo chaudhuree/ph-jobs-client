@@ -1,15 +1,16 @@
+import { useParams } from "react-router-dom"
 import { getAuth } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import axiosSecure from "../hooks/useAxiosHook";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import "react-datepicker/dist/react-datepicker.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-export default function AddJob() {
+export default function UpdateJob() {
   const auth = getAuth();
   const [bannerURL, setBannerURL] = useState("");
   const [jobTitle, setJobTitle] = useState("");
@@ -26,41 +27,66 @@ export default function AddJob() {
   const [salaryRange, setSalaryRange] = useState("");
   const [deadline, setDeadline] = useState(new Date());
   const [jobLocation, setJobLocation] = useState("");
+  const { id } = useParams()
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-  const { mutateAsync } = useMutation({
-    mutationFn: async ({ newJob }) => {
-      const response = await axiosSecure.post("/job", newJob);
-      return response.data;
+  // fetching single job
+  const {data:singleJob,isLoading} = useQuery({
+    queryKey: ["singleJob",id],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`/job/${id}`)
+      return data.job
+    },
+  })
+  useEffect(() => {
+    if(singleJob){
+      setBannerURL(singleJob.bannerURL)
+      setJobTitle(singleJob.jobTitle)
+      setCompany(singleJob.company)
+      setRecruiterName(singleJob.recruiterName)
+      setRecruiterEmail(singleJob.recruiterEmail)
+      setCategory(singleJob.category)
+      setJobType(singleJob.jobType)
+      setJobDescription(singleJob.jobDescription)
+      setSalaryRange(singleJob.salaryRange)
+      setDeadline(singleJob.deadline)
+      setJobLocation(singleJob.jobLocation)
+    }
+  }, [singleJob])
+  // updating job
+  const {mutateAsync} = useMutation({
+    mutationFn: async ({data}) => {
+      const { data: job } = await axiosSecure.put(`/job/${id}`, data)
+      return job
     },
     onSuccess: () => {
-      toast.success("Job Posted Successfully");
-      queryClient.invalidateQueries("jobs");
-    },
-    onError: (error) => {
-      toast.error("Something went wrong, fill all fields before submitting");
-    },
-  });
+      queryClient.invalidateQueries(["jobs","myjobs"])
+      toast.success("Job Updated Successfully")
+    }
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newJob = {
-      bannerURL,
-      jobTitle,
-      company,
-      recruiterName,
-      recruiterEmail,
-      category,
-      jobType,
-      jobDescription,
-      salaryRange,
-      deadline,
-      jobLocation,
-    };
-    await mutateAsync({ newJob });
-    e.target.reset();
-    navigate("/alljobs");
-  };
+    try {
+      const data = {
+        bannerURL,
+        jobTitle,
+        company,
+        recruiterName,
+        recruiterEmail,
+        category,
+        jobType,
+        jobDescription,
+        salaryRange,
+        deadline,
+        jobLocation,
+      }
+      await mutateAsync({data})
+      navigate("/myjobs");
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  }
   return (
     <div className="mx-auto container px-5">
       <Helmet>
@@ -247,5 +273,4 @@ export default function AddJob() {
         </div>
       </form>
     </div>
-  );
-}
+  )};

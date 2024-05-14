@@ -19,16 +19,16 @@ export default function AppliedJobs() {
       </div>
     );
 
-  console.log("jobs", jobs.data.appliedJobs);
 
   return (
     <div className="mx-auto container px-5">
-      <div className="flex items-center max-md:flex-col justify-between max-md:justify-center">
+      <div className="flex  max-w-5xl mx-auto items-center max-md:flex-col justify-between max-md:justify-center">
         <select
+        value={category}
           onChange={(e) => setCategory(e.target.value)}
           className="w-1/4 px-3 py-2 mb-3 border border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300"
         >
-          <option value="">All</option>
+          <option  value="">All</option>
           <option value="On Site">On Site</option>
           <option value="Part Time">Part Time</option>
           <option value="Remote">Remote</option>
@@ -48,7 +48,7 @@ export default function AppliedJobs() {
         </div>
       </div>
 
-      {view === "table" ? (<TableWithoutPagination jobsData={jobs.data.appliedJobs} />) : <AppliedJobsCardView jobsData={jobs.data.appliedJobs} />}
+      {view === "table" ? (<TableWithoutPagination jobsData={jobs?.data?.appliedJobs} />) : <AppliedJobsCardView jobsData={jobs?.data?.appliedJobs} />}
     </div>
   );
 }

@@ -16,8 +16,8 @@ export default function SingleTab({ category, limit }) {
   };
   if (isLoading)
     return (
-      <div className="flex justify-center items-center w-full p-5 dark:text-gray-300">
-        <span className="loading loading-ball loading-xs dark:text-gray-300"></span>
+      <div className="flex justify-center items-center w-full p-5 dark:text-primary">
+        <span className="loading loading-ball loading-xs dark:text-primary"></span>
       </div>
     );
   if (categoryBasedData?.length === 0)

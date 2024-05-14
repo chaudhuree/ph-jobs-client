@@ -17,6 +17,8 @@ import SingleJob from "./pages/SingleJob";
 import AllJobs from "./pages/AllJobs";
 import AddJob from "./pages/AddJob";
 import AppliedJobs from "./pages/AppliedJobs";
+import MyJobs from "./pages/MyJobs";
+import UpdateJob from "./pages/UpdateJob";
 
 function App() {
   return (
@@ -92,6 +94,26 @@ function App() {
           }
         >
           <Route path="/appliedjobs" element={<AppliedJobs />} />
+        </Route>
+        <Route
+          path="/myjobs"
+          element={
+            <LayoutWithNavbar>
+              <PrivateRoute />
+            </LayoutWithNavbar>
+          }
+        >
+          <Route path="/myjobs" element={<MyJobs />} />
+        </Route>
+        <Route
+          path="/updatejob/:id"
+          element={
+            <LayoutWithNavbar>
+              <PrivateRoute />
+            </LayoutWithNavbar>
+          }
+        >
+          <Route path="/updatejob/:id" element={<UpdateJob />} />
         </Route>
         <Route
           path="/job/:id"

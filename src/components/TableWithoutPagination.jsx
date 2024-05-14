@@ -1,4 +1,5 @@
 import moment from "moment";
+import {Link } from "react-router-dom";
 export default function TableWithoutPagination({ jobsData }) {
   return (
     <section className=" mx-auto container">
@@ -91,12 +92,12 @@ export default function TableWithoutPagination({ jobsData }) {
                           </td>
 
                           <td className="px-4 py-4 text-sm whitespace-nowrap">
-                            <a
-                              href={`/job/${job.job._id}`}
+                            <Link
+                              to={`/job/${job.job._id}`}
                               className="text-blue-500 dark:text-blue-400"
                             >
                               View
-                            </a>
+                            </Link>
                           </td>
                         </tr>
                       ))}

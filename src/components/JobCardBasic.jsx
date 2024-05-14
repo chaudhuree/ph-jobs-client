@@ -6,7 +6,7 @@ export default function JobCardBasic({id,jobTitle,recruiter,jobDescription,categ
     <div className="w-full md:w-[45%] max-w-2xl px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
     <div className="flex items-center justify-between">
         <span className="text-sm font-light text-gray-600 dark:text-gray-400">{moment(deadline).fromNow()}</span>
-        <a className="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500" tabindex="0" role="button">{category}</a>
+        <p className="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500" tabindex="0" role="button">{category}</p>
     </div>
 
     <div className="mt-2">
@@ -19,7 +19,7 @@ export default function JobCardBasic({id,jobTitle,recruiter,jobDescription,categ
 
         <div className="flex items-center">
             <img className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" src={recruiter.photoURL} alt="avatar"/>
-            <a className="font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">{recruiter.displayName}</a>
+            <p className="font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">{recruiter.displayName}</p>
         </div>
     </div>
 </div>
