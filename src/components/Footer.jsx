@@ -30,7 +30,7 @@ export default function Footer() {
             <img src={whatsapp} alt="what'sapp logo" />
           </div>
         </div>
-        <div className="max-md:col-span-5 max-lg:col-span-6 w-full max-lg:text-center lg:col-span-4 grid lg:justify-center">
+        <div className=" max-md:col-span-5 max-lg:col-span-6 w-full max-lg:text-center lg:col-span-4 grid lg:justify-center">
           <h4 className="font-poppins mb-3 font-semibold text-base">
             Services
           </h4>
@@ -42,12 +42,12 @@ export default function Footer() {
             <p className="cursor-pointer">Contact us</p>
           </div>
         </div>
-        <div className="max-md:col-span-7 max-lg:col-span-6 w-full  lg:col-span-4 grid lg:justify-end">
+        <div className=" max-md:col-span-7 max-lg:col-span-6 w-full  lg:col-span-4 grid lg:justify-end pr-1">
           <h4 className="font-poppins mb-3 font-semibold text-base">Contct Us</h4>
 
-          <div className="flex flex-col gap-[10px] text-base">
+          <div className="flex flex-col gap-[10px]  text-base">
             <div className="flex items-center gap-2"><img src={phone} alt="phone logo" />(+880) 17-3687-3879</div>
-            <div className="flex items-center gap-2"><img src={map} alt="map logo" />Dakkhinkhan, Uttara - Dhaka</div>
+            <div className="flex items-center gap-2"><img src={map} alt="map logo" /><p>Dakkhinkhan,<br/> Uttara - Dhaka</p></div>
             
           </div>
         </div>

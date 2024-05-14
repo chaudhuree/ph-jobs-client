@@ -18,7 +18,7 @@ export default function MyJobs() {
         <span className="loading loading-ball loading-xs dark:text-primary"></span>
       </div>
     );
-    console.log(jobs);
+    // console.log(jobs);
     
   return (
     <div className="container mx-auto px-5">

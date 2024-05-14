@@ -74,23 +74,23 @@ export default function ApplicantListTable({ jobsData,total,limit,currentPage,se
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                   {jobsData.map((job) => (
-                    <tr key={job._id}>
+                    <tr key={job?._id}>
                       <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         <div>
                           <h2 className="font-medium text-gray-800 dark:text-white ">
-                            {job.user.email}
+                            {job?.user?.email}
                           </h2>
                         </div>
                       </td>
                       <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
                         <div className="font-medium text-gray-800 dark:text-white">
-                          {job.user.displayName}
+                          {job?.user?.displayName}
                         </div>
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div>
                           <a
-                            href={job.resume}
+                            href={job?.resume}
                             target="_blank"
                             rel="noreferrer"
                             className="text-blue-500 dark:text-blue-400"
@@ -102,20 +102,20 @@ export default function ApplicantListTable({ jobsData,total,limit,currentPage,se
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center">
                           <span className={`px-2 py-1 text-xs font-semibold rounded-full  dark:text-green-100 ${job.status ==="Accepted" ? "text-blue-800 bg-blue-100 dark:bg-blue-500" : job.status==="Rejected"?"text-red-800 bg-red-100  dark:bg-red-500":"text-green-800 bg-green-100 dark:bg-green-500"}`}>
-                            {job.status}
+                            {job?.status}
                           </span>
                         </div>
                       </td>
                       <td className=" py-4 text-sm whitespace-nowrap">
                         <div className="flex ">
                           <button
-                            onClick={() => handleStatus(job._id,"Accepted")}
+                            onClick={() => handleStatus(job?._id,"Accepted")}
                             className="text-blue-500 dark:text-blue-400"
                           >
                             <TiTick className="text-xl ml-4" />
                           </button>
                           <button
-                            onClick={() => handleStatus(job._id,"Rejected")}
+                            onClick={() => handleStatus(job?._id,"Rejected")}
                             className="text-red-500 dark:text-red-400"
                           >
                             <TiTimesOutline  className="text-xl ml-4" />
