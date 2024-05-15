@@ -3,6 +3,7 @@ import {useQuery} from '@tanstack/react-query'
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import Markdown from 'react-markdown'
+import { markdownToHTML } from '../utils';
 export default function Blog() {
   const {id} = useParams();
   const {data: blogData, isLoading, isError, error} = useQuery({
@@ -38,7 +39,8 @@ export default function Blog() {
     </div>
 </div>
 
-<Markdown className="text-gray-800 dark:text-gray-400 text-base md:text-lg text-justify my-4">{blogData?.content}</Markdown>
+
+ <div className="text-gray-800 blog-content dark:text-gray-400 text-base md:text-lg text-justify my-4" dangerouslySetInnerHTML={{__html: markdownToHTML(blogData?.content)}}></div> 
     </div>
   )
 }

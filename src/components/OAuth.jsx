@@ -21,9 +21,7 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      // const {data} =await axiosSecure.post('/auth',{email:user.email,displayName:user.displayName,photoURL:user.photoURL})
       const data = await mutateAsync({data:{ email: user.email,displayName:user.displayName,photoURL:user.photoURL}});
-      // console.log('data->',data);
       
       if(data.data.user){
         toast.success("You have successfully signed in with Google");

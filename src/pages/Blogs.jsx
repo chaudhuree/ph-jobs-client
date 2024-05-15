@@ -34,11 +34,11 @@ export default function Blogs() {
       <section className="bg-white dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <div className="text-center">
-            <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
+            <h1 className="text-4xl md:text-5xl font-semibold lg:font-bold text-gray-800 capitalize  dark:text-white">
               Innovation Depot
             </h1>
 
-            <p className="max-w-lg mx-auto mt-4 text-gray-500">
+            <p className="max-w-lg text-lg md:text-xl mx-auto mt-4 text-gray-500">
               Fuel Your Mind with the Latest Insights and Trends
             </p>
           </div>

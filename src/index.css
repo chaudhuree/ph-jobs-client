@@ -38,5 +38,55 @@ ul li a.active {
   font-weight: 600;
 font-size: 20px;
 }
+.blog-content hr{
+  border: 1px solid #2A68FF;
+  margin: 20px 0;
+}
+.blog-content h2{
+  font-size: 30px;
+  font-weight: 600;
+  color: #2A68FF;
+  margin-bottom: 20px;
+}
+.blog-content p strong{
+  font-size: 24px;
+  font-weight: 600;
+  color: #e05008;
+  margin-bottom: 20px;
+}
+.blog-content h3{
+  font-size: 24px;
+  font-weight: 600;
+  color: #f0641f;
+  margin-bottom: 20px;
+}
+.blog-content p{
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.blog-content ul{
+  margin-bottom: 20px;
+}
+.blog-content ul li strong{
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #2183df;
+  padding-left: 16px;
+}
+@media (max-width: 768px) {
 
-
+  .blog-content h2{
+    font-size: 24px;
+  }
+  .blog-content p {
+    font-size: 16px;
+  }
+  .blog-content ul li strong{
+    font-size: 16px;
+  }
+  .blog-content p strong{
+    font-size: 20px;
+  }
+}
