@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdOutlineDownloading } from "react-icons/md";
 import { AiOutlineDownload } from "react-icons/ai";
-
+import { Helmet } from "react-helmet";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { getAuth } from "firebase/auth";
 import axiosSecure from "../hooks/useAxiosHook";
@@ -26,6 +26,9 @@ export default function AppliedJobs() {
 
   return (
     <div className="mx-auto container px-5">
+      <Helmet>
+        <title>Applied Jobs</title>
+      </Helmet>
       <div className="flex  max-w-5xl mx-auto items-center max-md:flex-col justify-between max-md:justify-center">
         <select
           value={category}
