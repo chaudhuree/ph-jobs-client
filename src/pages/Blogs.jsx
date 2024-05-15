@@ -55,9 +55,9 @@ export default function Blogs() {
                 <div className="relative z-20 max-w-lg p-6 mx-auto -mt-20 bg-white rounded-md shadow dark:bg-gray-900 lg:h-[228px] flex flex-col">
                   <Link
                     to={`/blog/${blog._id}`} 
-                    className="font-semibold text-gray-800 hover:underline dark:text-white md:text-xl"
+                    className="font-semibold  hover:underline md:text-xl text-transparent bg-gradient-to-tr bg-clip-text from-blue-500 via-sky-500 to-blue-500 dark:from-sky-300 dark:via-blue-300 dark:to-sky-500"
                   >
-                    <Markdown>{blog.title}</Markdown>
+                    <Markdown >{blog.title}</Markdown>
                   </Link>
 
                   <p className="mt-3  text-sm text-gray-500 dark:text-gray-300 md:text-sm flex-1">

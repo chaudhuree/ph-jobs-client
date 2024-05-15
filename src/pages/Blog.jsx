@@ -19,7 +19,7 @@ export default function Blog() {
   return (
     <div className='container mx-auto px-5'>
       <Helmet>
-        <title>{blogData?.title}</title>
+        <title>{(blogData?.title).match(/\*{2}(.*?)\*{2}/)[1]}</title>
       </Helmet>
        
     <div className="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:space-x-4 lg:items-center">
