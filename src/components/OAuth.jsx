@@ -4,12 +4,14 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosSecure from "../hooks/useAxiosHook";
 import { useMutation } from "@tanstack/react-query";
 export default function OAuth() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state || '/'
   const {mutateAsync} = useMutation({
     mutationFn:async ({data})=>await axiosSecure.post("/auth",data),
   })
@@ -21,14 +23,15 @@ export default function OAuth() {
       const user = result.user;
       // const {data} =await axiosSecure.post('/auth',{email:user.email,displayName:user.displayName,photoURL:user.photoURL})
       const data = await mutateAsync({data:{ email: user.email,displayName:user.displayName,photoURL:user.photoURL}});
-      console.log('data->',data);
+      // console.log('data->',data);
       
       if(data.data.user){
         toast.success("You have successfully signed in with Google");
       }else{
         toast.error("Could not authorize with Google");
       }
-      navigate("/");
+      // navigate("/");
+      navigate(from, { replace: true })
     } catch (error) {
       toast.error("Could not authorize with Google");
     }
