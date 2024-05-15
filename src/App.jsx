@@ -20,6 +20,7 @@ import AppliedJobs from "./pages/AppliedJobs";
 import MyJobs from "./pages/MyJobs";
 import UpdateJob from "./pages/UpdateJob";
 import Blogs from "./pages/Blogs";
+import Blog from "./pages/Blog";
 import ApplicantList from "./pages/ApplicantList";
 
 function App() {
@@ -115,6 +116,14 @@ function App() {
         >
           <Route path="/myjobs" element={<MyJobs />} />
         </Route>
+        <Route
+          path="/blog/:id"
+          element={
+            <LayoutWithNavbar>
+              <Blog />
+            </LayoutWithNavbar>
+          }
+        />
         <Route
           path="/updatejob/:id"
           element={

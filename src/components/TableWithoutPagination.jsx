@@ -1,6 +1,6 @@
 import moment from "moment";
 import {Link } from "react-router-dom";
-export default function TableWithoutPagination({ jobsData }) {
+export default function TableWithoutPagination({ jobsData=[] }) {
   return (
     <section className=" mx-auto container">
       <div className="flex flex-col mt-6">
@@ -53,9 +53,9 @@ export default function TableWithoutPagination({ jobsData }) {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                  {jobsData.length === 0
+                  {jobsData?.length === 0
                     ? (<tr> <td className="text-center p-5 text-xl text-bold text-orange-500" colSpan={6}>no jobs found</td></tr>)
-                    : jobsData.map((job) => (
+                    : jobsData?.map((job) => (
                         <tr key={job._id}>
                           <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                             <div>
