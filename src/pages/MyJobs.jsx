@@ -15,7 +15,7 @@ export default function MyJobs() {
   })
   if (isLoading)
     return (
-      <div className="flex justify-center items-center w-full p-5 dark:text-primary">
+      <div className="flex justify-center items-center w-full p-5 dark:text-primary h-screen">
         <span className="loading loading-ball loading-xs dark:text-primary"></span>
       </div>
     );
