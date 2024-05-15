@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import JobCardBasic from "./JobCardBasic";
 import Search from "./Search";
 
@@ -12,31 +13,48 @@ export default function HeroSection() {
         <div className="container px-6 py-16 mx-auto text-center">
           <div className=" mx-auto">
             <h1 className="text-3xl max-w-lg mx-auto font-semibold text-gray-800 dark:text-white lg:text-4xl">
-            Navigate Your Next Opportunity
+              Navigate Your Next Opportunity
             </h1>
 
             <p className="mt-6 max-w-lg mx-auto text-gray-500 dark:text-gray-300">
-            Discover, Apply, and Thrive in Your Ideal Career with Our Comprehensive Job Search Platform.
+              Discover, Apply, and Thrive in Your Ideal Career with Our
+              Comprehensive Job Search Platform.
             </p>
 
-            <Search setJobs={setJobs} setTotalJobs={setTotalJobs} totalJobs={totalJobs} />
+            <Search
+              setJobs={setJobs}
+              setTotalJobs={setTotalJobs}
+              totalJobs={totalJobs}
+            />
           </div>
 
           {totalJobs > 0 && (
-
-            <div className="my-8 hidden lg:block">
-            <h2 className="text-2xl font-bold text-primary  text-center mx-auto dark:text-gray-100 underline">
-              Search Results
-            </h2>
-            <div className="flex gap-6 mt-4 flex-wrap items-center justify-center">
-              {jobs.map((job, index) => (
-                <JobCardBasic  key={job._id} id={job._id} deadline={job.deadline} jobTitle={job.jobTitle} recruiter={job.recruiter} jobDescription={job.jobDescription} category={job.category} />
-              ))}
-            </div>
-          </div>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0}}
+              transition={{ duration: 1 }}
+              className="my-8 hidden lg:block"
+            >
+              <h2 className="text-2xl font-bold text-primary  text-center mx-auto dark:text-gray-100 underline">
+                Search Results
+              </h2>
+              <div className="flex gap-6 mt-4 flex-wrap items-center justify-center">
+                {jobs.map((job, index) => (
+                  <JobCardBasic
+                    key={job._id}
+                    id={job._id}
+                    deadline={job.deadline}
+                    jobTitle={job.jobTitle}
+                    recruiter={job.recruiter}
+                    jobDescription={job.jobDescription}
+                    category={job.category}
+                  />
+                ))}
+              </div>
+            </motion.div>
           )}
 
-          <div className="max-w-screen-xl mx-auto mt-20">
+          <motion.div initial={{opacity:0,x:20}} whileInView={{opacity:1,x:0}} transition={{duration:2}} className="max-w-screen-xl mx-auto mt-20">
             <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
               <div className="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1">
                 <svg
@@ -118,9 +136,7 @@ export default function HeroSection() {
                 </svg>
               </div>
             </div>
-          </div>
-          
-          
+          </motion.div>
         </div>
       </section>
     </>
