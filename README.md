@@ -1,4 +1,4 @@
-### website name: Jobs
+## website name: Jobs
 ### live url: https://chaudhuree-jobs.netlify.app
 
 ---
@@ -10,3 +10,15 @@
 - different packages is used to make the website more interactive and user friendly.  
 - framer motion is used to add soft animation. tanstack react query is used to get data from api. this will also cache the data for better performance.
 - A nice blog page is added. where i have used my own custom function to get the data from the api which comes as a markdown format and then i have converted it to html format to show it in the blog page.
+
+---
+
+### To run the project locally run this command
+
+> you need to install node js in your machine. you can download and install node js from their official website.
+
+```sh
+git clone https://github.com/chaudhuree/ph-jobs-client.git
+npm install
+npm run dev
+```
